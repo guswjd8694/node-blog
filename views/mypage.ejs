@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/mypage.css">
+</head>
+<header>
+    <a href="/" class="toGoHomeBtn">
+        <img src="/img/dallae.png" alt="">
+    </a>
+</header>
+<body>
+    <div class="container">
+        <div id="logo"><h1 class="logo">dallae</h1>
+        </div>
+        <div class="leftbox">
+            <nav>
+                <a id="profile" class="active"><i class="fa fa-user"></i></a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile">
+                <h1>Personal Info</h1>
+                <% for(var i = 0; i < users.length; i++){ %>
+                    <h2>ID</h2>
+                    <p><%= users[i].id %></p>
+                    <h2>PassWord</h2>
+                    <p><%= users[i].password %></p>
+                    <h2>Full Name</h2>
+                    <p><%= users[i].name %></p>
+                    <h2>Birthday</h2>
+                    <p><%= users[i].birth %></p>
+                    <h2>Gender</h2>
+                    <p><%= users[i].gender %></p>
+                    <h2>Email</h2>
+                    <p><%= users[i].email %></p>
+                    <h2>Tel</h2>
+                    <p><%= users[i].tel %></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="https://use.fontawesome.com/2f863221ec.js"></script>
+</body>
+</html>
