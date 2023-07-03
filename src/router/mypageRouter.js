@@ -1,13 +1,20 @@
 import express from "express";
-import {db} from "../database/databaseConfig.js";
-import joinRouter from "./joinRouter.js";
-
+import { sessions, sessionMiddleware } from "../session.js";
 const mypageRouter = express.Router()
-const { users } = db.data
 
+mypageRouter.use(sessionMiddleware);
 mypageRouter.get('/', (req, res) => {
+    if (req.headers.cookie) {
+        const [, , privateKey] = req.headers.cookie.split('=');
+        const userInfo = sessions[privateKey];
 
-    res.render('mypage', {users})
-})
+        res.render('mypage', {
+            isLogin: true,
+            userInfo,
+        });
+    } else {
+        res.render('mypage', { isLogin: false });
+    }
+});
 
 export default mypageRouter

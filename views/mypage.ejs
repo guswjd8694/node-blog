@@ -25,22 +25,20 @@
         <div class="rightbox">
             <div class="profile">
                 <h1>Personal Info</h1>
-                <% for(var i = 0; i < users.length; i++){ %>
                     <h2>ID</h2>
-                    <p><%= users[i].id %></p>
+                    <p><%= userInfo[0].userid %></p>
                     <h2>PassWord</h2>
-                    <p><%= users[i].password %></p>
+                    <p><%= userInfo[0].password %></p>
                     <h2>Full Name</h2>
-                    <p><%= users[i].name %></p>
+                    <p><%= userInfo[0].name %></p>
                     <h2>Birthday</h2>
-                    <p><%= users[i].birth %></p>
+                    <p><%= userInfo[0].birth %></p>
                     <h2>Gender</h2>
-                    <p><%= users[i].gender %></p>
+                    <p><%= userInfo[0].gender %></p>
                     <h2>Email</h2>
-                    <p><%= users[i].email %></p>
+                    <p><%= userInfo[0].email %></p>
                     <h2>Tel</h2>
-                    <p><%= users[i].tel %></p>
-                <% } %>
+                    <p><%= userInfo[0].hp %></p>
             </div>
         </div>
     </div>

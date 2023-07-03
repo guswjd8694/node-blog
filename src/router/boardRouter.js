@@ -1,25 +1,54 @@
 import express from "express";
-import {db} from "../database/databaseConfig.js";
+import { sessions, sessionMiddleware } from "../session.js";
+import mysql from "mysql2";
+
+
+const connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    password: '01281028',
+    database: 'dallae',
+    port: '3306'
+})
+connection.connect((err) => {
+    if(err) {
+        console.log(err)
+        throw err
+    }
+})
 
 const boardRouter = express.Router()
-const {posts} = db.data
-
+boardRouter.use(sessionMiddleware)
 boardRouter.get('/', (req, res) => {
-    res.render('board', {posts})
+    connection.query('select * from board', (err, rows) => {
+        if (err) throw err;
+
+        res.render('board', {rows})
+    })
 })
 
 boardRouter.get('/write', (req, res) => {
     res.render('write')
+
 })
 
-boardRouter.post('/', async (req, res) => {
-    posts.push({
-        title : req.body.title,
-        contents : req.body.contents
+boardRouter.post('/', (req, res) => {
+    const title = req.body.title;
+    const contents = req.body.contents;
+    const param = [title, contents]
+
+    connection.query('select * from board', (err, rows) => {
+        if (err) throw err;
+
+        connection.query('insert into board(title, contents) values (?, ?)', param, (err, data) => {
+            if(err) throw err;
+        })
+
+        res.render('board')
     })
 
-    await db.write()
 
-    res.send('저장되었습니다')
+
+
 })
 export default boardRouter
