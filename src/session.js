@@ -10,6 +10,7 @@ const sessionConfig = {
     store: new memorystore()
 }
 
+
 const sessionMiddleware = session(sessionConfig);
 const sessions = {}
 
