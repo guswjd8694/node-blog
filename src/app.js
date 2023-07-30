@@ -4,7 +4,6 @@ import path from "path";
 import indexRouter from "./router/indexRouter.js";
 import joinRouter from "./router/joinRouter.js";
 
-
 dotenv.config()
 
 const app = express()
