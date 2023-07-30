@@ -1,21 +1,31 @@
-import express from 'express';
+import express from "express"
+import dotenv from "dotenv"
+import path from "path";
+import indexRouter from "./router/indexRouter.js";
 import joinRouter from "./router/joinRouter.js";
 
-const app = express();
-let port = process.env.port || 3000;
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-});
+dotenv.config()
 
-app.post('/', (req, res) => {
-    res.send('got a post request')
+const app = express()
+const __dirname = path.resolve();
+
+
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+app.use(express.static(__dirname + '/src'));
+app.use(express.static(__dirname + '/img'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use('/', indexRouter)
+app.use('/join', joinRouter)
+
+
+const port = process.env.PORT
+app.listen(port, () => {
+    console.log(`listing ${port} port`)
 })
 
-app.use('/join', joinRouter);
-
-
-
-const server = app.listen(port, () => {
-    console.log(`server on ${port}`)
-});
