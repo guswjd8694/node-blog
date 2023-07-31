@@ -23,9 +23,10 @@ joinRouter.post('/', (req, res) => {
     const gender = req.body.gender;
     const email = req.body.email;
     const hp = req.body.hp;
+    const param = [userid, password, name, birth, gender, email, hp]
 
-    connection.query('insert into users(name, userid, password, birth, gender, email, hp) values(?, ?, ?, ?, ?, ?, ?)')
-    res.send('디비를 확인해봐요')
+    connection.query('insert into users(name, userid, password, birth, gender, email, hp) values(?, ?, ?, ?, ?, ?, ?)', param)
+    res.send('디비를 확인해보자')
 })
 
 export default joinRouter

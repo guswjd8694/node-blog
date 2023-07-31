@@ -9,35 +9,46 @@
 </head>
 <style>
     .container {display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;}
-    form {display: flex; flex-direction: column; gap: 12px;}
+    form {display: flex; flex-direction: column; gap: 24px;}
     form > div {display: flex; flex-direction: column;}
     form > div > span {margin-top: 5px; font-size: 12px; color: #b8465b}
     input {min-width: 300px; padding: 10px 10px;}
+    h4 {margin: 0; margin-bottom: 8px; font-size: 14px;}
 </style>
 <body>
     <div class="container">
         <h2>회원가입</h2>
         <form action="/join" method="post">
             <div>
-                <input type="text" name="name" placeholder="이름"> <span>*필수</span>
+                <h4>이름</h4>
+                <input type="text" name="name" placeholder="이름">
+                <span>*필수</span>
             </div>
             <div>
-                <input type="text" name="userid" placeholder="아이디"> <span>*필수</span>
+                <h4>아이디</h4>
+                <input type="text" name="userid" placeholder="아이디">
+                <span>*필수</span>
             </div>
             <div>
-                <input type="text" name="password" placeholder="비밀번호"> <span>*필수</span>
+                <h4>비밀번호</h4>
+                <input type="password" name="password" placeholder="비밀번호">
+                <span>*필수</span>
             </div>
             <div>
+                <h4>생년월일 8자리 (ex.19990128)</h4>
                 <input type="text" name="birth" placeholder="생년월일 8자리 (ex.19990128)">
             </div>
             <div>
+                <h4>성별</h4>
                 <input type="text" name="gender" placeholder="성별">
             </div>
             <div>
+                <h4>이메일</h4>
                 <input type="text" name="email" placeholder="이메일">
             </div>
             <div>
-                <input type="text" name="hp" placeholder="핸드폰 번호 - 제외 (ex. 01012345678)">
+                <h4>번호 - 제외 (ex. 01012345678)</h4>
+                <input type="tel" name="hp" placeholder="핸드폰 번호 - 제외 (ex. 01012345678)">
             </div>
             <input type="submit">
         </form>
