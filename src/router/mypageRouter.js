@@ -5,6 +5,7 @@ const mypageRouter = express.Router();
 mypageRouter.get('/', (req, res) => {
     const userSession = req.session.user
 
+    console.log(userSession)
     if(userSession){
         res.render('mypage', { user: userSession })
     }else{
