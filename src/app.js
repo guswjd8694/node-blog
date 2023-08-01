@@ -6,6 +6,7 @@ import joinRouter from "./router/joinRouter.js";
 import loginRouter from "./router/loginRouter.js";
 import mypageRouter from "./router/mypageRouter.js";
 import session from "express-session";
+import logoutRouter from "./router/logoutRouter.js";
 
 dotenv.config()
 
@@ -33,6 +34,7 @@ app.use('/', indexRouter)
 app.use('/join', joinRouter)
 app.use('/login', loginRouter)
 app.use('/mypage', mypageRouter)
+app.use('/logout', logoutRouter)
 
 
 

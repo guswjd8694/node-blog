@@ -7,6 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    .container {display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;}
+    form {display: flex; flex-direction: column; gap: 24px;}
+    h4 {margin: 0; margin-bottom: 12px;}
+    p {margin: 0; margin-bottom: 24px;}
+    a {display: inline-block; padding: 8px 12px; border: 1px solid #000; border-radius: 20px; text-decoration: none; background: black; color: #fff; transition: background .2s, color .2s;}
+    a:hover {background: #575757; color: #fff; transition: background .2s, color .2s;;}
+</style>
 <body>
     <div class="container">
         <h2>마이페이지</h2>
@@ -25,6 +33,9 @@
         <p><%= user.email %></p>
         <h4>Tel</h4>
         <p><%= user.hp %></p>
+
+
+        <a href="/logout" class="logoutBtn">로그아웃할래 🤯</a>
     </div>
 </body>
 </html>
