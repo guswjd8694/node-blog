@@ -12,13 +12,12 @@
     form {display: flex; flex-direction: column; gap: 24px;}
     h4 {margin: 0; margin-bottom: 12px;}
     p {margin: 0; margin-bottom: 24px;}
-    a {display: inline-block; padding: 8px 12px; border: 1px solid #000; border-radius: 20px; text-decoration: none; background: black; color: #fff; transition: background .2s, color .2s;}
+    a {display: inline-block; padding: 8px 12px; margin-bottom: 12px; border: 1px solid #000; border-radius: 20px; text-decoration: none; background: black; color: #fff; transition: background .2s, color .2s;}
     a:hover {background: #575757; color: #fff; transition: background .2s, color .2s;;}
 </style>
 <body>
     <div class="container">
         <h2>마이페이지</h2>
-
         <h4>ID</h4>
         <p><%= user.userid %></p>
         <h4>PassWord</h4>
@@ -34,8 +33,8 @@
         <h4>Tel</h4>
         <p><%= user.hp %></p>
 
-
         <a href="/logout" class="logoutBtn">로그아웃할래 🤯</a>
+        <a href="/userDelete" class="deleteBtn">회원탈퇴함니다 ㄱ- 수고요 뷁 💩</a>
     </div>
 </body>
 </html>

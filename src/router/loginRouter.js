@@ -11,7 +11,11 @@ const connection = mysql.createConnection({
 })
 connection.connect();
 loginRouter.get('/', (req, res) => {
-    res.render('login')
+    if(!req.session.user){
+        res.render('login')
+    }else{
+        res.send('<script type="text/javascript">alert("이미 로그인했잔여 ㅋ"); document.location.href="/";</script>')
+    }
 })
 loginRouter.post('/', (req, res) => {
     const reqUserid = req.body.userid;
