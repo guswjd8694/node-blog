@@ -22,7 +22,7 @@ loginRouter.post('/', (req, res) => {
     const reqPassword = req.body.password;
 
     if(reqUserid && reqPassword){
-        connection.query('select * from users where userid = ? and password = ?', [reqUserid, reqPassword] , (err, rows, fields) => {
+        connection.query('select * from users where userid = ? and password = ? and deleted_at is null', [reqUserid, reqPassword] , (err, rows, fields) => {
             if(rows.length > 0){
                 const userid = rows[0].userid;
                 const password = rows[0].password;
